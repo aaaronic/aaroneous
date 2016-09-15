@@ -54,7 +54,7 @@
 
     <div class="container theme-showcase" role="main">
       <div class="jumbotron">
-        <h1>Coming Soon...</h1>
+        <h1>Coming Soon(ish)...</h1>
         <p>A new side project for a bored developer with little actual free-time on his hands.</p>
       </div>
 
@@ -63,6 +63,43 @@
         <h1>Bootstrapping for now, <em>nous allons voir si ce arrive.</em></h1>
       </div>
       <div class="page-content container">
+        <div class="row">
+          <div class="col-12">
+            <h2>AWS CLI (but really python) woes</h2>
+            <p>I'm currently working on an application with lots of foreign users who (unsurprisingly)
+            like to upload documents with unicode characters in their names. Today, we're alerted to a file
+            which can't be opened because its "missing" according Working on an application with
+            lots of foreign users who (unsurprisingly) like to upload documents with unicode characters in
+            their names. Today, we're alerted to a file which can't be opened because it's "missing" according
+            to the app.</p>
+            <p>I start digging around s3 using the awscli python package and grepping around the results from
+            `aws s3 ls --recursive`. I don't see the file they're looking for, but I do see a very similarly
+            named one when I loosen my grep command. All the unicode characters have been replaced by question
+            marks in the file name! Okay, somehow we're dealing with a bad interaction with S3, beause, surely,
+            S3 can handle unicode filenames. I start poking around the ruby gem we're using to do these uploads
+            and despite a few red herrings, it turns out its not rewriting URLs, so it must be a problem with
+            how our app is using it.</p>
+            <p>I dig around and determine we're also no doing such a modification to the URL! Meanwhile, I scan
+            our entire S3 bucket looking for file names with question makrs in their names and find hundreds!
+            What gives?!?</p>
+            <h3>The culprit</h3>
+            <p>I was doing all this searching around S3 using the awscli python package and piping the results
+            into grep (and sometimes piping into wc, etc.). But then I noticed, when I did just the `aws s3 ls`
+            command, the results in the terminal *did* have the expected unicode characters! The files were there
+            and perfectly fine in S3 all along. So is grep the culprit in the question marks? The man page for
+            the version of grep I'm using on the El Capitan Mac have this interesting line:</p>
+            <blockquote>The grep utility does not normalize Unicode input</blockquote>
+            <p>So I brew install ggrep and start using it instead -- but see the same issue... On a lark, I pipe
+            the output from awscli into `cat` and voila, still question marks! Piping the output from this python
+            cli executable is leading to different output than allowing the results to go directly to the terminal.
+            I start doing a little Googling and find that python programs have issues with checking the default
+            system encoding (because mine is definitely set to UTF-8, but python says its set to ascii), but
+            Stack Overflow yielded this <a href="http://stackoverflow.com/questions/2276200/changing-default-encoding-of-python">gem</a>.</p>
+            <p>`export PYTHONIOENCODING=utf8` has now been added to my .bash_profile to avoid this silly problem
+            when using the awscli gem in the future. Back to sane piping without losing unicode characters!</p>
+            <p class="timestamp">2016-09-15T14:59:38-0400</p>
+          </div>
+        </div>
         <div class="row">
           <div class="col-12">
             <h2>And while trying to deploy this very app,</h2>
