@@ -79,7 +79,7 @@
             S3 can handle unicode filenames. I start poking around the ruby gem we're using to do these uploads
             and despite a few red herrings, it turns out its not rewriting URLs, so it must be a problem with
             how our app is using it.</p>
-            <p>I dig around and determine we're also no doing such a modification to the URL! Meanwhile, I scan
+            <p>I dig around and determine we're also not doing such a modification to the URL! Meanwhile, I scan
             our entire S3 bucket looking for file names with question makrs in their names and find hundreds!
             What gives?!?</p>
             <h3>The culprit</h3>
