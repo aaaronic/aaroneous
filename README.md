@@ -3,11 +3,13 @@
 ## Massive overhaul today
 So, I made my wife spend time with me a few nights ago updating her professional site (hosted in a very similar manner to this one) and it made me feel like I should actually spend a little time on my own pseudo-site as well (this very one!). I opened up the repo and regretfully remembered why I don't work on it very much -- it was written in raw HTML as a single file and it looks fairly terrible. I use [Jekyll](https://jekyllrb.com/) themes and Markdown when working on my wife's site, since it's much easier for her to work with (though she only has once or twice -- sigh), so I decided I too should benefit from this architecture.
 
-I chose a theme (["dinky"](https://pages-themes.github.io/dinky/)) and started hacking. I wanted to manage my site as a series of posts, but I still haven't sussed that out yet. So for now, this site has switched to a single massive Markdown file and it looks slightly less awful. Working with it on WSL has also been a bit of a mixed bag, since Jekyll only notices my edits some of the time, but it did at least warn me that might be the case:
+I chose a theme (["Dinky"](https://pages-themes.github.io/dinky/)) and started hacking. I wanted to manage my site as a series of posts, but I still haven't sussed that out yet. So for now, this site has switched to a single massive Markdown file and it looks slightly less awful. Working with it on WSL has also been a bit of a mixed bag, since Jekyll only notices my edits some of the time, but it did at least warn me that might be the case:
 
-| Auto-regeneration may not work on some Windows versions.
-| Please see: https://github.com/Microsoft/BashOnWindows/issues/216
-| If it does not work, please upgrade Bash on Windows or run Jekyll with --no-watch.
+```
+Auto-regeneration may not work on some Windows versions.
+Please see: https://github.com/Microsoft/BashOnWindows/issues/216
+If it does not work, please upgrade Bash on Windows or run Jekyll with --no-watch.
+```
 
 I'll come back to it soon, hopefully, since I still feel the need to keep up with this thing the way I'm always insisting my wife should do with hers.
 
