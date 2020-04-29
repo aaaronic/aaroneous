@@ -8,7 +8,7 @@ I go through my regular debugger tools for the [GBA emulator](https://github.com
 Fast-forward a few hours and I finally know what's going on, but it took me an hour to find the _single bit_ he was accidentally setting.
 
 The problem:
-![Bad Bit](./img/bad_bit.png)
+![Bad Bit](./assets/img/bad_bit.png)
 (not my art, used with permission)
 
 The GBA sprites use 4 shorts in memory to control all of their attributes (row, column, palette settings, flipping, size, shape, etc.). It turns out he's accidentally switched row and column (attribute0 is for the row and attribute1 is for the column).
@@ -20,7 +20,7 @@ Since he'd flipped row and column, he'd flipped the masks as well, allowing him 
 It took me an hour to finally dig into the memory viewer and notice the rogue bit! I should have read his code more closely :sweat_smile: . I thought it was interesting enough to share. I might just be socially starved :smile:. I just emailed the student with the mini-lecture explanation, but told the student to just switch the colmask and rowmask since the game works well already. Every little bit matters!
 
 Fixed version:
-![Good Bit](./img/good_bit.png)
+![Good Bit](./assets/img/good_bit.png)
 (not my art, used with permission)
 
 Cheers and goodnight everyone.
