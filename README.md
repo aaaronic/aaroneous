@@ -1,4 +1,4 @@
-# Shouts Into the Void
+# Musing Into the Void
 
 ## Mini Lecture on the GameBoy Advance forthcoming:
 Student comes to office hours with his space game -- randomly here and there we see brown boxes for his sprites instead of the expected asteroids (they look great most of the time)...
