@@ -1,5 +1,32 @@
 # Shouts Into the Void
 
+## Mini Lecture on the GameBoy Advance forthcoming:
+Student comes to office hours with his space game -- randomly here and there we see brown boxes for his sprites instead of the expected asteroids (they look great most of the time)...
+
+I go through my regular debugger tools for the [GBA emulator](https://github.com/visualboyadvance-m/visualboyadvance-m) we use and everything looks good, so I'm stumped and have him send me the code so I can look into it more and move on to help another student.
+
+Fast-forward a few hours and I finally know what's going on, but it took me an hour to find the _single bit_ he was accidentally setting.
+
+The problem:
+![Bad Bit](./img/bad_bit.png)
+(not my art, used with permission)
+
+The GBA sprites use 4 shorts in memory to control all of their attributes (row, column, palette settings, flipping, size, shape, etc.). It turns out he's accidentally switched row and column (attribute0 is for the row and attribute1 is for the column).
+
+Since the screen is landscape 3:2 aspect ratio, the GBA uses one more bit for the column location than is does for the row location. We provide some helpful macros in a library we build up over the course of our labs to mask ints correctly to fit into the available bits (8 for row and 9 for column).
+
+Since he'd flipped row and column, he'd flipped the masks as well, allowing him to set a bit in attribute 0 that wasn't a location bit at all... Instead it was a [display mode bit](https://www.coranac.com/tonc/text/regobj.htm#sec-oam-entry) that setting to 1 turns the sprite into an _affine sprite_. Since he wasn't setting any affine matrices ([other OAM entry fun with 8.8 fixed point encoding and a little linear algebra](https://www.coranac.com/tonc/text/affine.htm)), he was getting an affine matrix of 4 zeros, which the GBA hardware interprets as "zoom in all the way to the center pixel of the sprite and display only that single color"...
+
+It took me an hour to finally dig into the memory viewer and notice the rogue bit! I should have read his code more closely :sweat_smile: . I thought it was interesting enough to share. I might just be socially starved :smile:. I just emailed the student with the mini-lecture explanation, but told the student to just switch the colmask and rowmask since the game works well already. Every little bit matters!
+
+Fixed version:
+![Good Bit](./img/good_bit.png)
+(not my art, used with permission)
+
+Cheers and goodnight everyone.
+
+2020-04-28T10:32:07-0400
+
 ## Massive overhaul today
 So, I made my wife spend time with me a few nights ago updating her professional site (hosted in a very similar manner to this one) and it made me feel like I should actually spend a little time on my own pseudo-site as well (this very one!). I opened up the repo and regretfully remembered why I don't work on it very much -- it was written in raw HTML as a single file and it looks fairly terrible. I use [Jekyll](https://jekyllrb.com/) themes and Markdown when working on my wife's site, since it's much easier for her to work with (though she only has once or twice -- sigh), so I decided I too should benefit from this architecture.
 
