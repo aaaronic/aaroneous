@@ -1,9 +1,9 @@
 # Musing Into the Void
 
 ## Misconceptions
-I was reminded today while driving of my habit of only half-reading things and ending up reading them incorrectly and then using those incorrect reading of the names as if I'm correct in conversation. I could only immediately come up with two of them "Skillrex" vs "Skrillex" and "Megan Three Stallion" vs "Megan Thee Stallion." I started a page to collect others as I remember them: [Misconceptions](/misconceptions)
+I was reminded today while driving of my habit of only half-reading things and ending up reading them incorrectly and then using those incorrect readings of the names as if I'm correct in conversation. I could only immediately come up with two of them: "Skillrex" vs "Skrillex" and "Megan Three Stallion" vs "Megan Thee Stallion." I started a page to collect others as I remember them: [Misconceptions](/misconceptions)
 
-2021-01-05T10:48:02-0500
+2021-01-05T22:48:02-0500
 
 ## Mini Lecture on the GameBoy Advance forthcoming:
 Student comes to office hours with his space game -- randomly here and there we see brown boxes for his sprites instead of the expected asteroids (they look great most of the time)...
