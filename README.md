@@ -1,5 +1,16 @@
 # Musing Into the Void
 
+## Terminal Unresponsive
+Note to the internet:
+Do not `cat /dev/random`
+
+2025-05-15T11:43:00-0400
+
+## Rainy Day
+Biking to work without consulting the weather forecast seems to have been a mistake.
+
+2025-04-23T15:35:00-0400
+
 ## Misconceptions
 I was reminded today while driving of my habit of only half-reading things and ending up reading them incorrectly and then using those incorrect readings of the names as if I'm correct in conversation. I could only immediately come up with two of them: "Skillrex" vs "Skrillex" and "Megan Three Stallion" vs "Megan Thee Stallion." I started a page to collect others as I remember them: [Misconceptions](/misconceptions)
 
