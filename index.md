@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Musing Into the Void
 
 ## Terminal Unresponsive
