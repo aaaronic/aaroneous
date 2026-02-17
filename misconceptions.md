@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Misconceptions
 Misheard Expressions:
 - "A long _road_ to hoe" vs. "A long row to hoe." (not sure who'd be hoeing a road... :facepalm:)
