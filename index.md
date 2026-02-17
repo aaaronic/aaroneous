@@ -4,6 +4,16 @@ layout: default
 
 # Musing Into the Void
 
+## New Domain, Modernized Workflow
+
+aaroneo.us is dead. ICANN and Namecheap don't need me to maintain multiple vanity domains. Since my BlueSky.social account is tied to aaaronic.com, so too shall this website.
+
+With the domain move, I also decided to try a go at letting the Copilot Agent here help modernize the codebase (and hopefully reduce the number of Dependabot complaints) by switching from the older github-pages gem to a straight Jekyll build workflow. theoretically that worked, though this post will help veryify that.
+
+Vacation time well spent 😅.
+
+2026-02-17T09:22:00-0800
+
 ## Terminal Unresponsive
 Note to the internet:
 Do not `cat /dev/random`
